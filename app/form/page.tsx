@@ -44,7 +44,8 @@ export default function PlayerForm() {
   const router = useRouter();
 
   const handleNumPlayersChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const num = parseInt(e.target.value);
+    // Clamp the value between 1 and 10
+    const num = Math.min(Math.max(parseInt(e.target.value), 1), 10);
     setNumPlayers(num);
     setPlayers(
       Array(num)
