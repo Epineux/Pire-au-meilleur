@@ -48,7 +48,7 @@ export default function MysteryNumberCards({ players }: { players: Player[] }) {
 
   useEffect(() => {
     setRandomNumbers(generateUniqueNumbers());
-  }, []);
+  }, [players.length]);
 
   // Handle turn changes
   useEffect(() => {
@@ -62,7 +62,7 @@ export default function MysteryNumberCards({ players }: { players: Player[] }) {
     return () => {
       window.removeEventListener('nextTurn', handleTurnChange);
     };
-  }, []);
+  }, [players.length]);
 
   const handleCardClick = (index: number) => {
     setFlippedCards((prevState) => {
